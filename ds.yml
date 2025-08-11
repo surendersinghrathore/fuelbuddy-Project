@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: <ACR_NAME>.azurecr.io/dev:_BUILD_ID_
+        image: <ACR_NAME>.azurecr.io/bankingapp:_BUILD_ID_
         ports:
         - containerPort: 8080
         env:
