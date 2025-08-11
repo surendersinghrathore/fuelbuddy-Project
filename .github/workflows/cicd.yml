@@ -131,6 +131,9 @@ jobs:
     needs: docker-build-and-push
     steps:
      - uses: actions/checkout@v4
+     - name: Update image in YAML
+       run: |
+        sed -i "s|bankingapp.azurecr.io/bankingapp:latest|${{ secrets.ACR_NAME }}.azurecr.io/bankingapp:${{ github.run_number }}|g" ds.yml
      - name: Deploy to AKS
        run: kubectl apply -f ds.yml 
 
