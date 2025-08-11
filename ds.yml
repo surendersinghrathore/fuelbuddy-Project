@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: g26pardeepaksregistry.azurecr.io/dev:${{ github.run_number }}
+        image: bankingapp.azurecr.io/dev:${{ github.run_number }}
         ports:
         - containerPort: 8080
         env:
