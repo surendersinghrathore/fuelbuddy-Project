@@ -6,7 +6,8 @@ ENV APP_HOME /usr/src/app
 
 WORKDIR $APP_HOME
 
-COPY ***Jar/*.jar app.jar
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
 
 
 
