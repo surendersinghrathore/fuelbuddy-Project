@@ -76,9 +76,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: maven package  
-      run: mvn test
+      run: mvn package
     - name: Checking out
-      uses: actions/checkout@master
+      uses: actions/checkout@v4
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
@@ -87,7 +87,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-             mvn sonar:sonar \
+           mvn sonar:sonar \
             -Dsonar.projectKey=my_project_key \
             -Dsonar.host.url=${SONAR_HOST_URL} \
             -Dsonar.login=${SONAR_TOKEN}}
