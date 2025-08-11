@@ -77,6 +77,12 @@ jobs:
         cache: maven
     - name: maven package  
       run: mvn package
+# now to upload the jar file generated in this step i am uploading it so that i can use it in docker build job
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+       name: bankingapp-jar
+       path: target/*.jar
     # - name: Checking out
     #  # uses: actions/checkout@v4
     #   with:
