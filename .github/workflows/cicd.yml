@@ -133,7 +133,7 @@ jobs:
      - uses: actions/checkout@v4
      - name: Update image in YAML
        run: |
-        sed -i "s|<ACR_NAME>.azurecr.io/bankingapp:_BUILD_ID_|${{ secrets.ACR_NAME }}.azurecr.io/dev:${{ github.run_number }}|g" ds.yml
+        sed -i "s|<ACR_NAME>.azurecr.io/bankingapp:_BUILD_ID_|${{ secrets.ACR_NAME }}.azurecr.io/bankingapp:${{ github.run_number }}|g" ds.yml
 
      - name: Deploy to AKS
        run: kubectl apply -f ds.yml 
