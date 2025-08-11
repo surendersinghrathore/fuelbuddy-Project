@@ -126,7 +126,13 @@ jobs:
           ${{ secrets.ACR_NAME }}.azurecr.io/bankingapp:latest
         build-args: |
           JAR_FILE=app/*.jar  
-      
+  deploy-to-aks:
+    runs-on: self-hosted
+    needs: docker-build-and-push
+    steps:
+     - uses: actions/checkout@v4
+     - name: Deploy to AKS
+       run: kubectl apply -f ds.yml 
 
      
     
